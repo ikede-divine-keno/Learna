@@ -1,0 +1,1 @@
+Learna is a comprehensive online learning platform designed to revolutionize the way education is delivered and managed. With Learna, administrators, teachers, and students have access to a seamless and intuitive interface that enhances the teaching and learning experience.
