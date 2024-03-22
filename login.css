@@ -2,18 +2,28 @@ body {
     margin: 0%;
     padding: 0%;
 }
+.main {
+    display: flex;
+    justify-content: space-between;
+    padding: 0%;
+}
 .back {
     background-color: #211D1D;
     min-width: 643px;
+    /**max-width: 800px;**/
+    width: 50%;
     max-height: 1024px;
     gap: 0px;
     border-radius: 0px 20px 20px 0px;
     border: 0px 1px 0px 0px;
-    float: left;
+    margin-bottom: 0%;
+    padding-left: 0%;
+    /**float: left;**/
+    
 }
 form {
     padding-top: 183px;
-    padding-bottom: 183px;
+    padding-bottom: 165px;
     width: 477px;
     margin-left: auto;
     margin-right: auto;
@@ -27,6 +37,7 @@ h1 {
 h2 {
     color: white;
     margin-bottom: 50px;
+    font-weight: normal;
 }
 label {
     color: white;
@@ -38,8 +49,9 @@ input {
     background: transparent;
     border-radius: 10px;
     border: 1px solid white;
-    height: 30px;
+    height: 50px;
     padding-left: 20px;
+    color: white;
 }
 input::placeholder {
     color: white;
@@ -66,17 +78,19 @@ hr {
 }
 button {
     width: 477px;
-    height: 30px;
+    height: 50px;
     text-align: center;
     background-color: blue;
     color: whitesmoke;
     border: rgb(3, 75, 77);
     border-radius: 10px;
-    font-size: 15px;
-    margin-top: 25px;
+    font-size: 20px;
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
 #or {
     margin-top: 40px;
+    margin-bottom: 40px;
 }
 section {
     clear: both;
@@ -95,14 +109,82 @@ section {
     height: 25px;
     vertical-align: middle;
 }
-#backdrop {
+.Welcome {
+   /** float: right;**/
+    width: 50%;
+    max-height: 1024px;
+}
+.welc {
+    width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.welc #backdrop {
     margin-top: 100px;
-    margin-left: 50px;
     width: 692px;
     height: 515.69px;
+    /**margin-left: auto;
+    margin-right: auto;**/
 }
-h3 {
+.welc h3 {
     font-size: 50px;
     color: blue;
-    padding-left: 55px;
+    margin-bottom: 0%;
+    padding-left: 100px;
+    /**margin-left: auto;
+    margin-right: auto;**/
+}
+.welc p{
+    color: #858585;
+    font-family: Poppins;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 30px;
+    text-align: left;
+    width: 535px;
+    height: 90px;
+    padding-left: 100px;
+    /**margin-left: auto;
+    margin-right: auto;**/
+}
+@media only screen and (max-width: 768px) {
+    .main {
+        display: block;
+    }
+    .back {
+        width: 100%;
+    }
+    .back form {
+        width: 50%;
+        margin-left: 10%;
+        padding-top: 25%;
+    }
+    form input {
+        width: 75%;
+    }
+    button {
+        width: 82%;
+    }
+    .Welcome {
+        width: 100%;
+    }
+    .welc {
+        width: fit-content;
+    }
+    .welc #backdrop {
+        width: 100%;
+    }
+    .welc h3 {
+        width: 50%;
+    }
+    .welc p {
+        width: 50%;
+        text-wrap: left;
+    }
+    #forgot {
+        margin-left: 10%;
+    }
+    span, section {
+        width: 80%;
+    }
 }
