@@ -88,6 +88,22 @@ button {
     margin-top: 30px;
     margin-bottom: 30px;
 }
+button:hover {
+    background-color: rgb(150, 127, 255);
+}
+p {
+    font-size: 22px;
+    text-align: center;
+    color: white;
+    margin-top: 2%;
+    margin-bottom: 15%;
+}
+a {
+    color: blue;
+}
+a:hover {
+    color: aquamarine;
+}
 #or {
     margin-top: 40px;
     margin-bottom: 40px;
