@@ -42,6 +42,11 @@ h2 {
 label {
     color: white;
 }
+.rolecheck {
+    width: 33%;
+    height: 10%;
+    margin-right: -13%;
+}
 input {
     margin-top: 10px;
     margin-bottom: 15px;
@@ -210,5 +215,9 @@ section {
     }
     span, section {
         width: 95%;
+    }
+    .rolecheck {
+        width: 10%;
+        margin-right: 0%;
     }
 }
