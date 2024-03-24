@@ -47,10 +47,13 @@ input {
     margin-left: -20%;
     color: black;
 }**/
-.rolecheck {
+#student, #teacher, #admin {
     width: 33%;
     height: 10%;
     margin-right: -13%;
+}
+#org {
+    display: none;
 }
 button {
     width: 100%;
@@ -140,7 +143,7 @@ section {
         width: 100%;
         height: fit-content;
     }
-    .rolecheck {
+    #student, #teacher, #admin {
         width: 10%;
         margin-right: 0%;
     }
