@@ -22,9 +22,13 @@
                 <input type="password" placeholder="**************" minlength="8" required><br>
                 <label>Select your role</label>
                 <div class="role">
-                    <label><input type="radio" class="rolecheck" name="role" value="student" required>Student</label>
-                    <label><Input type="radio" class="rolecheck" name="role" value="teacher" required>Teacher</label>
-                    <label><input type="radio" class="rolecheck" name="role" value="admin" required>Admin</label>
+                    <label><input type="radio" id="student" name="role" value="student" onclick="toggleBox()" required>Student</label>
+                    <label><Input type="radio" id="teacher" name="role" value="teacher" onclick="toggleBox()" required>Teacher</label>
+                    <label><input type="radio" id="admin" name="role" value="admin" onclick="toggleBox()" required>Admin</label>
+                </div>
+                <div id="org">
+                    <label>Organization Name</label>
+                    <input type="text" placeholder="Enter Organization name here" required>
                 </div>
                 <button type="submit">Sign up</button>
                 <p id="sign-in">Already have an account? <a href="login.html">Sign in</a></p>
@@ -35,5 +39,17 @@
                 </section>
             </form>
         </div>
+        <script>
+            function toggleBox() {
+              var org = document.getElementById("org");
+              var admin = document.getElementById("admin");
+              
+              if (admin.checked) {
+                org.style.display = "block";
+              } else {
+                org.style.display = "none";
+              }
+            }
+          </script>
     </body>
 </html>
