@@ -4,7 +4,7 @@
         <title>Learna Signup page</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="signup.css" type="text/css">
+        <link rel="stylesheet" href="styles/signup.css" type="text/css">
     </head>
     <body>
         <div class="main">
@@ -22,9 +22,9 @@
                 <input type="password" placeholder="**************" minlength="8" required><br>
                 <label>Select your role</label>
                 <div class="role">
-                    <label><input type="radio" class="rolech" name="role" value="student">Student</label>
-                    <label><Input type="radio" class="rolech" name="role" value="teacher">Teacher</label>
-                    <label><input type="radio" class="rolech" name="role" value="admin">Admin</label>
+                    <label><input type="radio" class="rolecheck" name="role" value="student" required>Student</label>
+                    <label><Input type="radio" class="rolecheck" name="role" value="teacher" required>Teacher</label>
+                    <label><input type="radio" class="rolecheck" name="role" value="admin" required>Admin</label>
                 </div>
                 <button type="submit">Sign up</button>
                 <p id="sign-in">Already have an account? <a href="login.html">Sign in</a></p>
