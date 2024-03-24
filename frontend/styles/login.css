@@ -18,12 +18,12 @@ body {
     border: 0px 1px 0px 0px;
     margin-bottom: 0%;
     padding-left: 0%;
+    padding-bottom: 10%;
     /**float: left;**/
     
 }
 form {
     padding-top: 183px;
-    padding-bottom: 165px;
     width: 80%;
     margin-left: auto;
     margin-right: auto;
@@ -180,6 +180,7 @@ section {
         width: 100%;
         margin: 0%;
         padding: 0%;
+        padding-bottom: 20%;
     }
     .back form {
         width: 95%;

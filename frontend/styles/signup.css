@@ -47,7 +47,7 @@ input {
     margin-left: -20%;
     color: black;
 }**/
-.rolech {
+.rolecheck {
     width: 33%;
     height: 10%;
     margin-right: -13%;
@@ -140,7 +140,7 @@ section {
         width: 100%;
         height: fit-content;
     }
-    .rolech {
+    .rolecheck {
         width: 10%;
         margin-right: 0%;
     }
