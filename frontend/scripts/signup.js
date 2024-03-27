@@ -1,7 +1,7 @@
 // Function to handle sign-up form submission
 const handleSignup = async () => {
     // Get form input values
-    const name = document.getElementById('username').value;
+    const fullName = document.getElementById('fullName').value;
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
     const confirmPassword = document.getElementById('confirmPassword').value;
@@ -35,9 +35,14 @@ const handleSignup = async () => {
         return;
     }
 
+    
+    // Split full name into first name and last name
+    const [firstName, lastName] = fullName.split(' ');
+
     // Create user object
-    const user = {
-        name,
+    let user = {
+        firstName,
+        lastName,
         email,
         password,
         role // Include selected role in user object
