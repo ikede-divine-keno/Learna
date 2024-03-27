@@ -1,5 +1,7 @@
 // Importing bcrypt for password hashing
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+require("dotenv").config();
 
 // Importing models for database operations
 const Admin = require('../models/Admin');
@@ -78,7 +80,47 @@ const signUp = async (req, res) => {
   }
 };
 
+// Controller function for user signIn
+const signIn = async (req, res) => {
+  try {
+    const user = await Admin.findOne({ email: req.body.email }) ||
+      await Teacher.findOne({ email: req.body.email }) ||
+      await Student.findOne({ email: req.body.email });
+
+    if (!user) {
+      return res.status(400).json({ message: 'User not found' });
+    }
+
+    const isPasswordCorrect = await bcrypt.compare(req.body.password, user.password);
+
+    if (!isPasswordCorrect) {
+      return res.status(400).json({ message: 'Incorrect password' });
+    }
+
+    // Setting the JWT token for the 
+    const role = user.collection.name;
+    const userEmail = { email: user.email, role: role };
+    const token = jwt.sign(userEmail, process.env.ACCESS_TOKEN_SECRET, {
+      expiresIn: '30m'
+    });
+
+    // Prepare the user object without sensitive information
+    const { password, ...userInfo } = user._doc;
+    userInfo.role = role;
+
+    res.status(200).json({
+      message: 'User authenticated successfully',
+      user: userInfo,
+      accessToken: token,
+    });
+  } catch (err) {
+    // Handling errors and sending a 500 (Internal Server Error) response
+    res.status(500).json({ message: err.message });
+  }
+};
+
 // Exporting the signUp function to make it accessible from other modules
 module.exports = {
-  signUp
+  signUp,
+  signIn
 };
