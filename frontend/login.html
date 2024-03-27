@@ -4,7 +4,7 @@
         <title>Learna Login Page</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width initial-scale=1.0">
-        <link rel="stylesheet" href="login.css" type="text/css">
+        <link rel="stylesheet" href="styles/login.css" type="text/css">
     </head>
     <body>
         <div class="main">
@@ -12,12 +12,15 @@
                 <form>
                     <h1>Welcome!</h1>
                     <h2>Log in to your account</h2>
+                    <label>Select your role</label><br>
+                    <label><input type="radio" class="rolecheck" name="role" value="student" required>Student</label>
+                    <label><Input type="radio" class="rolecheck" name="role" value="teacher" required>Teacher</label>
+                    <label><input type="radio" class="rolecheck" name="role" value="admin" required>Admin</label><br>
                     <label>Email</label><br>
                     <input type="email" placeholder="yourname@whatever.com" required><br>
                     <label>Password</label><br>
                     <input type="password" placeholder="***********" minlength="8" required><br>
-                    <span><input type="checkbox" id="check">
-                        <label>Remember me</label>
+                        <label><input type="checkbox" id="check">Remember me</label>
                         <label id="forgot">Forgot password?</label><br></span>
                     <button type="submit">Log in</button>
                     <p>Don't have an account? <a href="signup.html">Register here</a></p>
