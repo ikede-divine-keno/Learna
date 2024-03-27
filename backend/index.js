@@ -1,20 +1,24 @@
-// Importing dotenv to load environment variables from a .env file
+// Importing
+// dotenv to load environment variables from a .env file
 require('dotenv').config();
-
-// Importing the connectDB function from the database configuration file
+// the connectDB function from the database configuration file
 const connectDB = require('./config/database');
-
-// Importing the Express application instance from the Express configuration file
+// the Express application instance from the Express configuration file
 const app = require('./config/express');
-
-// Importing the statsRoutes from the routes directory
+// the statsRoutes from the routes directory
 const statsRoutes = require('./routes/index');
+// the authRoutes from the routes directory
+const authController = require('./routes/authRoutes');
 
 // Connect to MongoDB by calling the connectDB function
 connectDB();
 
-// Using the statsRoutes for handling requests at the '/api/stats' endpoint
+// Routes
+// for handling requests at the '/api/stats' endpoint
 app.use('/api/stats', statsRoutes);
+
+// for handling requests at the '/api/auth' endpoint
+app.use('/api/auth', authController);
 
 // Defining the port for the server to listen on
 const PORT = process.env.PORT || 3000;
