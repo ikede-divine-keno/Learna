@@ -13,24 +13,24 @@
                 <h1>Hello!</h1>
                 <p>Welcome to Learna where we re-invent the learning experience</p>
                 <label>Full name</label><br>
-                <input type="text" placeholder="e.g Naruto Uchiha" required><br>
+                <input type="text" id="fullName" placeholder="e.g Naruto Uchiha" required><br>
                 <label>Email</label><br>
-                <input type="email" placeholder="yourname@hiddenleaf.com" required><br>
+                <input type="email" id="email" placeholder="yourname@hiddenleaf.com" required><br>
                 <label>password</label><br>
-                <input type="password" placeholder="**************" minlength="8" required><br>
+                <input type="password" id="password" placeholder="**************" minlength="8" required><br>
                 <label>Confirm password</label><br>
-                <input type="password" placeholder="**************" minlength="8" required><br>
+                <input type="password" id="confirmPassword" placeholder="**************" minlength="8" required><br>
                 <label>Select your role</label>
                 <div class="role">
-                    <label><input type="radio" id="student" name="role" value="student" onclick="toggleBox()" required>Student</label>
-                    <label><Input type="radio" id="teacher" name="role" value="teacher" onclick="toggleBox()" required>Teacher</label>
-                    <label><input type="radio" id="admin" name="role" value="admin" onclick="toggleBox()" required>Admin</label>
+                    <label><input type="radio" id="student" name="role" value="student" required>Student</label>
+                    <label><Input type="radio" id="teacher" name="role" value="teacher" required>Teacher</label>
+                    <label><input type="radio" id="admin" name="role" value="admin" required>Admin</label>
                 </div>
                 <div id="org">
                     <label>Organization Name</label>
-                    <input type="text" placeholder="Enter Organization name here" required>
+                    <input type="text" id="organizationName" placeholder="Enter Organization name here" required>
                 </div>
-                <button type="submit">Sign up</button>
+                <button type="submit" id="signup-btn">Sign up</button>
                 <p id="sign-in">Already have an account? <a href="login.html">Sign in</a></p>
                 <span id="or"><hr>    or    <hr></span>
                 <section>
@@ -39,7 +39,8 @@
                 </section>
             </form>
         </div>
-        <script>
+        <script src="scripts/signup.js"></script>
+        <!--<script>
             function toggleBox() {
               var org = document.getElementById("org");
               var admin = document.getElementById("admin");
@@ -50,6 +51,6 @@
                 org.style.display = "none";
               }
             }
-          </script>
+          </script>-->
     </body>
 </html>
