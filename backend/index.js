@@ -9,6 +9,8 @@ const app = require('./config/express');
 const statsRoutes = require('./routes/index');
 // the authRoutes from the routes directory
 const authController = require('./routes/authRoutes');
+// the userRoutes from the routes directory
+const userRoutes = require('./routes/userRoutes');
 
 // Connect to MongoDB by calling the connectDB function
 connectDB();
@@ -19,6 +21,8 @@ app.use('/api/stats', statsRoutes);
 
 // for handling requests at the '/api/auth' endpoint
 app.use('/api/auth', authController);
+
+app.use('/api/user', userRoutes);
 
 // Defining the port for the server to listen on
 const PORT = process.env.PORT || 3000;
