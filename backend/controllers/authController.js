@@ -101,11 +101,11 @@ const signIn = async (req, res) => {
     const role = user.collection.name;
     const userEmail = { email: user.email, role: role };
     const token = jwt.sign(userEmail, process.env.ACCESS_TOKEN_SECRET, {
-      expiresIn: '30m'
+      expiresIn: '15m'
     });
 
     // Prepare the user object without sensitive information
-    const { password, ...userInfo } = user._doc;
+    const { password, __v, ...userInfo } = user._doc;
     userInfo.role = role;
 
     res.status(200).json({
