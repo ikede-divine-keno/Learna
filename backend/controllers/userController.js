@@ -51,8 +51,15 @@ const user = async (req, res) => {
   }
 };
 
+
+const getTeachers = async (req, res) => {
+  const { email, role } = req.user;
+  res.status(200).json({ email, role });
+}
+
 // Exporting the user function to make it accessible from other modules
 module.exports = {
-  user
+  user,
+  getTeachers
 };
 

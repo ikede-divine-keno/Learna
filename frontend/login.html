@@ -1,43 +1,80 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Learna Login Page</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width initial-scale=1.0">
-        <link rel="stylesheet" href="styles/login.css" type="text/css">
-    </head>
-    <body>
+
+<head>
+    <title>Learna Login Page</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width initial-scale=1.0">
+    <link rel="stylesheet" href="styles/login.css" type="text/css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="#">Learna</a>
+            </div>
+            <div class="menu">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <!-- <li><a href="#">Courses</a></li> -->
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div id="container">
         <div class="main">
             <div class="back">
-                <form id="signin-form">
-                    <h1>Welcome!</h1>
-                    <h2>Log in to your account</h2>
-                    <!--<label>Select your role</label><br>
-                    <label><input type="radio" class="rolecheck" name="role" value="student" required>Student</label>
-                    <label><Input type="radio" class="rolecheck" name="role" value="teacher" required>Teacher</label>
-                    <label><input type="radio" class="rolecheck" name="role" value="admin" required>Admin</label><br>-->
-                    <label>Email</label><br>
-                    <input type="email" placeholder="yourname@whatever.com" required><br>
-                    <label>Password</label><br>
-                    <input type="password" placeholder="***********" minlength="8" required><br>
-                        <label><input type="checkbox" id="check">Remember me</label>
-                        <label id="forgot">Forgot password?</label><br></span>
-                    <button type="submit">Log in</button>
-                    <p>Don't have an account? <a href="signup.html">Register here</a></p>
-                    <span id="or"><hr>    or    <hr></span>
-                    <section>
-                        <button class="continue"><img src="images/Google.png"> Continue with Google</button>
-                        <button class="continue"><img src="images/Facebook.png"> Continue with facebook</button>
-                    </section>
+                <form action="">
+                    <div class="text">
+                        <h1>Welcome!</h1>
+                        <h2>Log in to your account</h4>
+                    </div>
+                    <div id="email-input">
+                        <label>Email</label>
+                        <input type="email" placeholder="yourname@whatever.com" required />
+                    </div>
+    
+                    <div id="password-input">
+                        <label>Password</label>
+                        <input type="password" placeholder="**********" required />
+                    </div>
+                    <div class="remember-forget">
+                        <div>
+                            <input id="check" type="checkbox" />
+                            <label for="check" id="checkbox">
+                                Remember me
+                            </label>
+                        </div>
+                        <div>
+                            <a href="#">Forgot Password?</a>
+                        </div>
+                    </div>
+                    <p class="error"></p>
+                    <a href="feed.html">
+                        <button type="submit" class="btn">Login</button>
+                    </a>
+    
+                    <div class="register-link">
+                        <p>Don't have an account? <a href="signup.html">Register</a></p>
+                    </div>
                 </form>
             </div>
             <div class="Welcome">
                 <div class="welc">
-                    <img id="backdrop" src="images/login_backdrop.png">
+                    <div id="backdrop">
+                        <img src="images/login_backdrop.png">
+                    </div>
                     <h3>Welcome Back!</h3>
-                    <p>your gateway to limitless learning possibilities! Dive into a world of knowledge with our curated courses, interactive lessons, and expert guidance.</p>
+                    <p>your gateway to limitless learning possibilities! Dive into a world of knowledge with our curated
+                        courses, interactive lessons, and expert guidance.</p>
                 </div>
             </div>
         </div>
-    </body>
+    </div>
+</body>
+
 </html>

@@ -1,7 +1,7 @@
 // Function to retrieve JWT token from local storage
-function getToken() {
-    return localStorage.getItem('token');
-}
+// function getToken() {
+//     return localStorage.getItem('token');
+// }
 
 document.addEventListener('DOMContentLoaded', function () {
     const signinForm = document.getElementById('signin-form');
@@ -18,10 +18,10 @@ document.addEventListener('DOMContentLoaded', function () {
         };
 
         // Add token to request headers
-        const token = getToken();
-        if (token) {
-            headers['Authorization'] = `Bearer ${token}`;
-        }
+        // const token = getToken();
+        // if (token) {
+        //     headers['Authorization'] = `Bearer ${token}`;
+        // }
 
         // Send a POST request to the server for authentication
         fetch('http://localhost:3000/api/auth/signin', {
@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function () {
         .then(data => {
             // Save the JWT token and login time in local storage
             localStorage.setItem('token', data.token);
-            localStorage.setItem('loginTime', Date.now());
+            // localStorage.setItem('loginTime', Date.now());
 
             // Redirect to dashboard page
             window.location.href = '../dashboard.html';
@@ -50,18 +50,18 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // Check for token expiration and cancel the session after 15 minutes
-    const checkExpiration = () => {
-        const loginTime = localStorage.getItem('loginTime');
-        if (loginTime && (Date.now() - parseInt(loginTime)) > 15 * 60 * 1000) {
-            console.log('Session expired. Logging out.');
-            alert('Status code 400: Bad request');
-            // Clear local storage and redirect to login page
-            localStorage.removeItem('token');
-            localStorage.removeItem('loginTime');
-            window.location.href = '../login.html';
-        }
-    };
+    // const checkExpiration = () => {
+    //     const loginTime = localStorage.getItem('loginTime');
+    //     if (loginTime && (Date.now() - parseInt(loginTime)) > 15 * 60 * 1000) {
+    //         console.log('Session expired. Logging out.');
+    //         alert('Status code 400: Bad request');
+    //         // Clear local storage and redirect to login page
+    //         localStorage.removeItem('token');
+    //         localStorage.removeItem('loginTime');
+    //         window.location.href = '../login.html';
+    //     }
+    // };
 
-    // Check for token expiration every minute
-    setInterval(checkExpiration, 60 * 1000);
+    // // Check for token expiration every minute
+    // setInterval(checkExpiration, 60 * 1000);
 });
