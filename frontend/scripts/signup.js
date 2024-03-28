@@ -1,12 +1,14 @@
 // Function to handle sign-up form submission
 const handleSignup = async () => {
     // Get form input values
-    const fullName = document.getElementById('fullName').value;
+    const firstName = document.getElementById('firstName').value;
+    const lastName = document.getElementById('lastName').value;
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
     const confirmPassword = document.getElementById('confirmPassword').value;
     const roleRadios = document.getElementsByName('role'); // Get all role radio buttons
     let role;
+    let organizationName; // Declare organizationName variable
 
     // Loop through radio buttons to find the selected role
     for (const radio of roleRadios) {
@@ -14,7 +16,7 @@ const handleSignup = async () => {
             role = radio.value;
             // If admin role is selected, check if organization name is provided
             if (role === 'admin') {
-                const organizationName = document.getElementById('organizationName').value;
+                organizationName = document.getElementById('organizationName').value; // Get organization name value
                 if (!organizationName) {
                     alert('Organization Name is required for Admin role.');
                     return;
@@ -25,7 +27,7 @@ const handleSignup = async () => {
     }
 
     // Validate form input (client-side validation)
-    if (!name || !email || !password || !confirmPassword || !role) {
+    if (!firstName || !lastName || !email || !password || !confirmPassword || !role) { // Fixed validation check
         alert('All fields are required.');
         return;
     }
@@ -55,7 +57,7 @@ const handleSignup = async () => {
 
     try {
         // Send POST request to server to register user
-        const response = await fetch('/api/signup', {
+        const response = await fetch('http://localhost:3000/api/auth/signup', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -66,24 +68,23 @@ const handleSignup = async () => {
         if (response.ok) {
             // Registration successful
             alert('User registered successfully.');
-            window.location.href = '/login'; // Redirect to login page
+            window.location.href = '/frontend/login.html'; // Redirect to login page
         } else {
             // Registration failed
             const errorMessage = await response.json();
             alert(errorMessage.message);
         }
     } catch (error) {
-        console.error('Error registering user:', error);
         alert('An error occurred. Please try again later.');
     }
 };
 
 // Function to toggle visibility of organization name field based on selected role
 const toggleOrganizationNameField = () => {
-    const admin = document.getElementById('admin');
-    const org = document.getElementById('org');
+    const adminRadio = document.getElementById('admin');
+    const organizationNameField = document.getElementById('org');
 
-    org.style.display = admin.checked ? 'block' : 'none';
+    organizationNameField.style.display = adminRadio.checked ? 'block' : 'none';
 };
 
 // Event listeners for sign-up form submission and role radio button changes
