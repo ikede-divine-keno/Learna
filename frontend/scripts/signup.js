@@ -37,6 +37,10 @@ const handleSignup = async () => {
         return;
     }
 
+    
+    // Split full name into first name and last name
+    const [firstName, lastName] = fullName.split(' ');
+
     // Create user object
     let user = {
         firstName,

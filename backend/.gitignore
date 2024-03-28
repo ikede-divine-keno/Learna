@@ -1,0 +1,2 @@
+# Ignore node_modules directory (contains project dependencies)
+node_modules/
