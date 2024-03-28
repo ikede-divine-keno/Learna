@@ -50,7 +50,6 @@ const handleSignup = async () => {
     if (role === 'admin') {
         user.organizationName = organizationName;
     }
-    console.log(user);
 
     try {
         // Send POST request to server to register user
@@ -72,7 +71,6 @@ const handleSignup = async () => {
             alert(errorMessage.message);
         }
     } catch (error) {
-        console.error('Error registering user:', error);
         alert('An error occurred. Please try again later.');
     }
 };
