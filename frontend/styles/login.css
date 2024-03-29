@@ -27,7 +27,7 @@
 }
 
 .navbar {
-    background-color: var(--primary-bg-color);
+    background-color: var(--seconary-bg-color);
     color: var(--primary-text-color);
     font-size: 18px;
     padding: 10px 0;
@@ -42,14 +42,21 @@
     padding: 1.2rem 20px;
 }
 
-.logo a {
+.logo a, .signs a {
     color: var(--primary-text-color);
-    font-size: 24px;
     font-weight: bold;
     text-decoration: none;
 }
+
+.logo a {
+    font-size: 24px;
+}
 .logo a:hover {
     text-decoration: none;
+}
+
+.menu {
+    width: 60%;
 }
 
 .menu ul {
@@ -57,6 +64,8 @@
     margin: 0;
     padding: 0;
     display: flex;
+    width: 100%;
+    justify-content: space-evenly;
 }
 
 .menu li {
@@ -69,9 +78,33 @@
     font-weight: 500;
 }
 
-/* .menu li>a:hover {
-    text-decoration: underline;
-} */
+.signs {
+    display: flex;
+    align-items: center;
+    /* justify-content: space-evenly; */
+    justify-content: flex-end;
+    width: 20%;
+
+    /* border: 1px solid red; */
+}
+
+.signs button {
+    border: none;
+    background-color: transparent;
+    padding: 0.5rem 1rem;
+    font-size: 18px;
+    border-radius: 5px;
+    border: 1px solid transparent;
+}
+
+.signs button:last-child {
+    background-color: var(--primary-bg-color);
+}
+
+.signs button:last-child:hover {
+    background-color: var(--tertiary-text-color);
+    transition: ease-in-out 0.5s;
+}
 
 
 .main {
@@ -173,7 +206,7 @@ input::placeholder {
     color: var(--primary-text-color);
 }
 
-button {
+#signin-btn {
     width: 95%;
     height: 50px;
     text-align: center;
@@ -186,7 +219,7 @@ button {
     border: none;
     font-weight: 500;
 }
-button:hover {
+#signin-btn:hover {
     background-color: transparent;
     border: 1px solid var(--primary-text-color);
 }
@@ -200,7 +233,7 @@ p {
 a {
     color: var(--primary-text-color);
 }
-a:hover {
+div > a:hover, p > a:hover {
     text-decoration: underline;
 }
 
