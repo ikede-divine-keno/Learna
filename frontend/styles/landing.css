@@ -1,0 +1,178 @@
+body {
+    margin: 0%;
+    padding: 0%;
+}
+main {
+    padding-left: 5%;
+    padding-right: 5%;
+}
+nav {
+    display: flex;
+    background-color: #212121;
+    padding: 3%;
+}
+#learna-icon {
+    height: 50%;
+    padding-top: 1%;
+}
+ul {
+    list-style: none;
+    display: flex;
+    width: 70%;
+}
+li {
+    margin-left: 2%;
+    margin-right: 2%;
+    width: 10%;
+}
+a {
+    color: white;
+    text-decoration: none;
+}
+.land-1 {
+    display: flex;
+}
+.land {
+    width: 60%;
+}
+#land-1 {
+    width: 40%;
+}
+button {
+    background-color: #242D7B;
+    width: 10%;
+    font-family: Poppins;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 27px;
+    letter-spacing: 0.1em;
+    border: 1px solid #242D7B;
+    border-radius: 10px;
+    color: white;
+}
+#login {
+    background-color: #212121;
+    border: 0px;
+}
+h1 {
+    
+    font-family: Poppins;
+    font-size: 70px;
+    font-weight: 600;
+    line-height: 97.5px;
+    text-align: left;
+}
+p {
+    font-family: Poppins;
+    font-size: 25px;
+    font-weight: 400;
+    line-height: 45px;
+    text-align: left;
+}
+#start {
+    width: 25%;
+    height: 10%;
+    margin-left: 0%;
+    border-radius: 15px;
+}
+h2 {
+    margin-top: 10%;
+    text-align: center;
+    font-size: 30px;
+}
+hr {
+    border: linear-gradient(90deg, rgba(36, 45, 123, 0) 0%, #242D7B 49.58%, rgba(36, 45, 123, 0) 102.35%);
+    width: 20%;
+    height: 10%;
+    margin-bottom: 6%;
+}
+.mission p {
+    font-family: Poppins;
+    font-size: 25px;
+    font-weight: 400;
+    line-height: 30px;
+    text-align: center;
+}
+#land-2 {
+    margin-left: 32%;
+}
+.Features {
+    display: flex;
+    justify-content: space-between;
+}
+.Features img {
+    width: 50%;
+    margin-bottom: 15%;
+}
+#students, #teachers, #admin {
+    width: 50%;
+}
+h3 {
+    font-size: 30px;
+    color: #242D7B;
+    font-weight: bold;
+}
+#sponsors {
+    display: flex;
+    justify-content: space-around;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20%;
+}
+.Contact {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.Contact p {
+    text-align: center;
+}
+form {
+    display: flex;
+    width: 100%;
+    margin-bottom: 20%;
+    margin-left: 18%;
+}
+form input {
+    width: 40%;
+    padding: 2%;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+input::placeholder {
+    font-size: 20px;
+}
+form button {
+    width: 20%;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+}
+footer {
+    background-color: #212121;
+    color: white;
+    padding: 5% 5% 0%;
+    display: flex;
+    justify-content: space-between;
+}
+span {
+    font-size: 30px;
+}
+.icons {
+    width: 20%;
+}
+.footer-icons {
+    display: flex;
+    justify-content: space-between;
+    width: 60%;
+    margin-top: 15%;
+    padding-bottom: 15%;
+}
+div h2 {
+    margin-top: 0%;
+}
+.comtact {
+    display: block;
+    width: 20%;
+    padding-bottom: 10%;
+}
