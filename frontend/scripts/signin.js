@@ -1,57 +1,73 @@
-// Function to retrieve JWT token from local storage
-// function getToken() {
-//     return localStorage.getItem('token');
-// }
-
-document.addEventListener('DOMContentLoaded', function () {
-    const signinForm = document.getElementById('signin-form');
-
-    signinForm.addEventListener('submit', function (event) {
-        event.preventDefault();
-
-        // Get email and password from the form
-        const email = document.getElementById('email').value;
-        const password = document.getElementById('password').value;
-
-        const headers = {
-            'Content-Type' : 'application/json'
-        };
-
-        // Add token to request headers
-        // const token = getToken();
-        // if (token) {
-        //     headers['Authorization'] = `Bearer ${token}`;
-        // }
-
-        // Send a POST request to the server for authentication
-        fetch('http://localhost:3000/api/auth/signin', {
-            method: 'POST',
-            headers: headers,
-            body: JSON.stringify({ email, password })
-        })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Invalid email or password.');
+// Reusable function to make HTTP requests
+const makeRequest = async (url, method, body = null, headers = {}) => {
+    try {
+        const options = {
+            method: method.toUpperCase(),
+            headers: {
+                'Content-Type': 'application/json',
+                ...headers
             }
-            return response.json();
-        })
-        .then(data => {
-            // Save the JWT token and login time in local storage
-            localStorage.setItem('token', data.token);
-            // localStorage.setItem('loginTime', Date.now());
+        };
+  
+        if (body) {
+            options.body = JSON.stringify(body);
+        }
+  
+        const response = await fetch(url, options);
+  
+        if (!response.ok) {
+            throw new Error('Request failed.');
+        }
+  
+        return await response.json();
+    } catch (error) {
+        throw new Error(`An error occurred: ${error.message}`);
+    }
+  };
 
-            // Redirect to dashboard page
-            window.location.href = '../dashboard.html';
-        })
-        .catch(error => {
-            console.error('Error occurred while signing in:', error);
-            alert(error.message || 'An error occurred while signing in. Please try again.');
-        });
-    });
+// Function to handle sign-in form submission
+const handleSignIn = async () => {
+    // Get form input values
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+
+    // Validate form input (client-side validation)
+    if (!email || !password) {
+        alert('Email and password are required.');
+        return;
+    }
+
+    // Create user object
+    const user = { email, password };
+
+    try {
+        // Make POST request using the reusable function
+        const data = await makeRequest('http://localhost:3000/api/auth/signin', 'POST', user);
+
+        if (localStorage.getItem('token')) {
+            localStorage.removeItem('token');
+        }
+
+        localStorage.setItem('token', data.accessToken); // Save token to local storage
+        // alert('Login successful.');
+        // window.location.href = '/frontend/dashboard.html'; // Redirect to dashboard page
+    } catch (error) {
+        alert(error.message);
+    }
+};
+
+// Event listener for sign-in form submission
+document.getElementById('signin-btn').addEventListener('click', handleSignIn);
+
+    // Add token to request headers
+    // const token = getToken();
+    // if (token) {
+    //     headers['Authorization'] = `Bearer ${token}`;
+    // }
 
     // Check for token expiration and cancel the session after 15 minutes
     // const checkExpiration = () => {
-    //     const loginTime = localStorage.getItem('loginTime');
+        //     const loginTime = localStorage.getItem('loginTime');
     //     if (loginTime && (Date.now() - parseInt(loginTime)) > 15 * 60 * 1000) {
     //         console.log('Session expired. Logging out.');
     //         alert('Status code 400: Bad request');
@@ -64,4 +80,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // // Check for token expiration every minute
     // setInterval(checkExpiration, 60 * 1000);
-});
+// });
+
+// Function to retrieve JWT token from local storage
+// function getToken() {
+//     return localStorage.getItem('token');
+// }

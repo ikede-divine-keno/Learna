@@ -28,19 +28,19 @@
     <div id="container">
         <div class="main">
             <div class="back">
-                <form action="">
+                <form id="signin-form" action="#">
                     <div class="text">
                         <h1>Welcome!</h1>
                         <h2>Log in to your account</h4>
                     </div>
                     <div id="email-input">
                         <label>Email</label>
-                        <input type="email" placeholder="yourname@whatever.com" required />
+                        <input id="email" type="email" placeholder="yourname@whatever.com" required />
                     </div>
     
                     <div id="password-input">
                         <label>Password</label>
-                        <input type="password" placeholder="**********" required />
+                        <input id="password" type="password" placeholder="**********" required />
                     </div>
                     <div class="remember-forget">
                         <div>
@@ -55,7 +55,7 @@
                     </div>
                     <p class="error"></p>
                     <a href="feed.html">
-                        <button type="submit" class="btn">Login</button>
+                        <button id="signin-btn" type="submit" class="btn">Login</button>
                     </a>
     
                     <div class="register-link">
@@ -75,6 +75,7 @@
             </div>
         </div>
     </div>
+    <script src="./scripts/signin.js"></script>
 </body>
 
 </html>

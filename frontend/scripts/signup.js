@@ -1,3 +1,29 @@
+const makeRequest = async (url, method, body = null, headers = {}) => {
+    try {
+        const options = {
+            method: method.toUpperCase(),
+            headers: {
+                'Content-Type': 'application/json',
+                ...headers
+            }
+        };
+  
+        if (body) {
+            options.body = JSON.stringify(body);
+        }
+  
+        const response = await fetch(url, options);
+  
+        if (!response.ok) {
+            throw new Error('Request failed.');
+        }
+  
+        return await response.json();
+    } catch (error) {
+        throw new Error(`An error occurred: ${error.message}`);
+    }
+  };
+
 // Function to handle sign-up form submission
 const handleSignup = async () => {
     // Get form input values
@@ -37,10 +63,6 @@ const handleSignup = async () => {
         return;
     }
 
-    
-    // Split full name into first name and last name
-    const [firstName, lastName] = fullName.split(' ');
-
     // Create user object
     let user = {
         firstName,
@@ -56,14 +78,8 @@ const handleSignup = async () => {
     }
 
     try {
-        // Send POST request to server to register user
-        const response = await fetch('http://localhost:3000/api/auth/signup', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(user)
-        });
+        // Make POST request using the makeRequest function
+        const response = await makeRequest('http://localhost:3000/api/auth/signup', 'POST', user);
 
         if (response.ok) {
             // Registration successful
@@ -84,7 +100,14 @@ const toggleOrganizationNameField = () => {
     const adminRadio = document.getElementById('admin');
     const organizationNameField = document.getElementById('org');
 
-    organizationNameField.style.display = adminRadio.checked ? 'block' : 'none';
+    if (adminRadio.checked) {
+        organizationNameField.style.display = 'block';
+        organizationNameField.attributes('required') = 'true';
+    } else {
+        organizationNameField.style.display = 'none';
+        organizationNameField.attributes('required') = 'false';
+    }
+
 };
 
 // Event listeners for sign-up form submission and role radio button changes

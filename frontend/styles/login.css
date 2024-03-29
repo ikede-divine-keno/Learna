@@ -80,7 +80,7 @@
     height: 80%;
     padding: 0%;
     width: 80%;
-    box-shadow: gray 1px 1px 5px;
+    box-shadow: gray 4px 4px 10px;
     border-radius: 10px;
     /* background-color: red; */
 }
@@ -184,6 +184,7 @@ button {
     margin-top: 30px;
     margin-bottom: 30px;
     border: none;
+    font-weight: 500;
 }
 button:hover {
     background-color: transparent;
@@ -214,28 +215,6 @@ a:hover {
     font-size: 18px;
   }
 
-#or {
-    margin-top: 40px;
-    margin-bottom: 40px;
-    font-size: 25px;
-}
-section {
-    clear: both;
-    display: flex;
-    justify-content: space-between;
-    margin-top: 10px;
-}
-.continue {
-    background-color: white;
-    color: black;
-    font-size: 18px;
-    margin-right: 5px;
-}
-.continue img {
-    margin-left: -12px;
-    height: 25px;
-    vertical-align: middle;
-}
 .Welcome {
    /** float: right;**/
     width: 50%;
