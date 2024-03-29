@@ -110,6 +110,7 @@ body.dark {
 .sidebar header .image-text {
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .sidebar header .logo-text {
@@ -130,14 +131,11 @@ header .image-text .profession {
 }
 
 .sidebar header .image {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 150px;
 }
 
 .sidebar header .image img {
-  width: 40px;
-  border-radius: 6px;
+  min-width: 100%;
 }
 
 .sidebar header .toggle {
