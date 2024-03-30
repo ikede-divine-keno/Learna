@@ -315,6 +315,7 @@ form input {
     border-radius: 10px 0px 0px 10px;
     border: 1px solid var(--primary-text-color);
     border-right-style: none;
+    outline: none;
 }
 
 form button {
@@ -334,42 +335,216 @@ form button {
     font-weight: 500;
 } */
 
-h3 {
+/* h3 {
     font-size: 30px;
     color: #242d7b;
     font-weight: bold;
+} */
+
+#footer {
+    color: var(--primary-text-color);
+    padding: 30px;
 }
 
-footer {
-    background-color: #212121;
-    color: white;
-    padding: 5% 5% 0%;
+.footer-container {
     display: flex;
     justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-span {
-    font-size: 30px;
+.footer-section {
+    flex: 1;
+    margin-right: 20px;
 }
 
-.icons {
-    width: 20%;
+.footer-section h2 {
+    font-size: 20px;
+    margin-bottom: 15px;
 }
 
-.footer-icons {
-    display: flex;
-    justify-content: space-between;
-    width: 60%;
-    margin-top: 15%;
-    padding-bottom: 15%;
+.footer-section ul {
+    list-style-type: none;
+    padding: 0;
 }
 
-div h2 {
-    margin-top: 0%;
+.footer-section ul li {
+    margin-bottom: 10px;
 }
 
-.comtact {
-    display: block;
-    width: 20%;
-    padding-bottom: 10%;
+.social-icons a {
+    color: var(--primary-text-color);
+    font-size: 24px;
+    margin-right: 10px;
+}
+
+.footer-section p {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: var(--primary-text-color);
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: var(--primary-bg-color);
+}
+
+/* Additional styles for copyright */
+.copyright {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+
+
+
+/* Styles for screens smaller than 768px (e.g., tablets) */
+@media only screen and (max-width: 768px) {
+    .nav-container {
+        max-width: 90%;
+    }
+
+    .menu {
+        width: 70%;
+    }
+
+    .signs {
+        width: 30%;
+    }
+
+    .footer-icons {
+        width: 80%;
+    }
+
+    #landing {
+        height: 90vh;
+    }
+
+    #sponsors {
+        width: 80%;
+    }
+    .img-left{
+        flex-direction: column-reverse;
+        width: 80%;
+    }
+    .img-right{
+        flex-direction: column;
+    }
+    .card {
+        width: 100%;
+    }
+    .card div {
+        width: unset;
+    }
+
+    footer {
+        padding: 20px;
+    }
+
+    .footer-container {
+        flex-wrap: wrap;
+    }
+
+    .footer-section {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .footer-section h2 {
+        font-size: 18px;
+    }
+
+    .footer-section ul li {
+        font-size: 14px;
+    }
+
+    .social-icons a {
+        font-size: 20px;
+    }
+
+    .btn {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+
+    .copyright {
+        font-size: 12px;
+    }
+
+
+
+    /* Additional styling for smaller screens can be added here */
+}
+
+/* Styles for screens smaller than 480px (e.g., mobile devices) */
+@media only screen and (max-width: 480px) {
+    .nav-container {
+        max-width: 100%;
+    }
+
+    .menu {
+        width: 100%;
+    }
+
+    .signs {
+        width: 100%;
+        justify-content: center; /* Center align buttons on smaller screens */
+        margin-top: 1rem; /* Add some space between menu and buttons */
+    }
+
+    .footer-icons {
+        width: 100%;
+    }
+    #landing {
+        height: 100vh;
+    }
+
+    #sponsors {
+        width: 100%;
+    }
+    .img-left{
+        flex-direction: column-reverse;
+        width: 80%;
+    }
+    .img-right{
+        flex-direction: column;
+    }
+    .card {
+        width: 100%;
+    }
+    .card div {
+        width: unset;
+    }
+
+    .footer-section h2 {
+        font-size: 16px;
+    }
+
+    .footer-section ul li {
+        font-size: 12px;
+    }
+
+    .social-icons a {
+        font-size: 18px;
+    }
+
+    .btn {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+
+    .copyright {
+        font-size: 10px;
+    }
+
+    /* Additional styling for even smaller screens can be added here */
 }
