@@ -27,6 +27,7 @@ const makeRequest = async (url, method, body = null, headers = {}) => {
 
 // Function to handle sign-in form submission
 const handleSignIn = async () => {
+    console.log('clicked')
     // Get form input values
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
@@ -49,10 +50,9 @@ const handleSignIn = async () => {
         }
 
         localStorage.setItem('token', data.accessToken); // Save token to local storage
-        // alert('Login successful.');
-        // window.location.href = '/frontend/dashboard.html'; // Redirect to dashboard page
+        window.location.href = '/frontend/dashboard.html'; // Redirect to dashboard page
     } catch (error) {
-        alert(error.message);
+        alert("Invalid login details");
     }
 };
 

@@ -1,46 +1,99 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Learna Signup page</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="styles/signup.css" type="text/css">
-    </head>
-    <body>
-        <div class="main">
-            <img src="images/welcome.PNG">
-            <form>
-                <h1>Hello!</h1>
-                <p>Welcome to Learna where we re-invent the learning experience</p>
-                <label>First name</label><br>
-                <input type="text" id="firstName" placeholder="e.g Naruto" required><br>
-                <label>Last name</label><br>
-                <input type="text" id="lastName" placeholder="e.g Uchiha" required><br>
-                <label>Email</label><br>
-                <input type="email" id="email" placeholder="yourname@hiddenleaf.com" required><br>
-                <label>password</label><br>
-                <input type="password" id="password" placeholder="**************" minlength="8" required><br>
-                <label>Confirm password</label><br>
-                <input type="password" id="confirmPassword" placeholder="**************" minlength="8" required><br>
-                <label>Select your role</label>
-                <div class="role">
-                    <label><input type="radio" id="student" name="role" value="student" required>Student</label>
-                    <label><Input type="radio" id="teacher" name="role" value="teacher" required>Teacher</label>
-                    <label><input type="radio" id="admin" name="role" value="admin" required>Admin</label>
-                </div>
-                <div id="org">
-                    <label>Organization Name</label>
-                    <input type="text" id="organizationName" placeholder="Enter Organization name here">
-                </div>
-                <button type="submit" id="signup-btn">Sign up</button>
-                <p id="sign-in">Already have an account? <a href="login.html">Sign in</a></p>
-                <span id="or"><hr>    or    <hr></span>
-                <section>
-                    <button class="continue"><img src="images/Google.png"> Continue with Google</button>
-                    <button class="continue"><img src="images/Facebook.png"> Continue with facebook</button>
-                </section>
-            </form>
+
+<head>
+    <title>Signup</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/signup.css" type="text/css">
+    <script src="scripts/signup.js"></script>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="landing.html">Learna</a>
+            </div>
+            <div class="menu">
+                <ul>
+                    <li><a href="landing.html">Home</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="signs">
+                <button>
+                    <a href="login.html">Log In</a>
+                </button>
+            </div>
         </div>
-        <script src="scripts/signup.js"></script>
-    </body>
+    </nav>
+    <div id="container">
+        <div class="main">
+            <div class="Welcome">
+                <div class="welc">
+                    <div id="backdrop">
+                        <img src="images/land_2.png">
+                    </div>
+                    <h3>Welcome!</h3>
+                    <p>
+                        your gateway to limitless learning possibilities! Dive into a world of knowledge with our curated
+                        courses, interactive lessons, and expert guidance.
+                    </p>
+                </div>
+            </div>
+            <div class="back">
+                <form id="signin-form" action="#">
+                    <div class="text">
+                        <h1>Hello!</h1>
+                        <h2>Welcome to Learna where we re-invent the learning experience</h4>
+                    </div>
+
+                    <div class="doubleinput">
+                        <div id="fname-input">
+                            <label>First Name</label>
+                            <input id="fname" type="text" placeholder="e.g Naruto" required />
+                        </div>
+                        <div id="lname-input">
+                            <label>Last Name</label>
+                            <input id="lname" type="text" placeholder="e.g Uchiha" required />
+                        </div>
+                    </div>
+                    <div id="email-input">
+                        <label>Email</label>
+                        <input id="email" type="email" placeholder="yourname@whatever.com" required />
+                    </div>
+
+                    <div class="doubleinput">
+                        <div id="password-input">
+                            <label>Password</label>
+                            <input id="password" type="password" placeholder="**********" required />
+                        </div>
+                        <div id="password-input">
+                            <label>Comfirm Password</label>
+                            <input id="confirmPassword" type="password" placeholder="**********" required />
+                        </div>
+                    </div>
+                    <label>Select your role</label>
+                    <div class="role">
+                        <label><input type="radio" id="student" name="role" value="student" required>Student</label>
+                        <label><Input type="radio" id="teacher" name="role" value="teacher" required>Teacher</label>
+                        <label><input type="radio" id="admin" name="role" value="admin" required>Admin</label>
+                    </div>
+                    <div id="org">
+                        <label>Organization Name</label>
+                        <input type="text" id="organizationName" placeholder="Enter Organization name here">
+                    </div>
+                    <p class="error"></p>
+                    <button id="signup-btn" type="submit">Sign Up</button>
+                    <div class="account-link">
+                        <p>Already have an account? <a href="login.html">Sign in</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
 </html>

@@ -1,149 +1,398 @@
-body {
-    background-color: #212121;
-    margin: 0%;
-    padding: 0%;
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap");
+
+:root {
+    --primary-bg-color: #242d7b;
+    /* Primary background color variable */
+    --seconary-bg-color: rgba(0, 0, 0, 0.767);
+    /* Secondary background color variable */
+    --primary-text-color: #e6e6e6;
+    /* Text color variable */
+    --secondary-text-color: rgba(0, 0, 0, 0.767);
+    /* Text color variable */
+    --tertiary-text-color: #ed847e;
+    /*#858585; Text color variable */
+    --primary-font: 'Rubik';
+    /* Text font variable */
+    --secondary-font: 'Poppins';
 }
+
+* {
+    font-family: var(--primary-font);
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+#container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* background-color: blue; */
+    height: 90vh;
+}
+
+.navbar {
+    background-color: var(--seconary-bg-color);
+    color: var(--primary-text-color);
+    font-size: 18px;
+    padding: 10px 0;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 80%;
+    margin: 0 auto;
+    padding: 1.2rem 20px;
+}
+
+.logo a,
+.signs a {
+    color: var(--primary-text-color);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.logo a {
+    font-size: 24px;
+}
+
+.logo a:hover {
+    text-decoration: none;
+}
+
+.menu {
+    width: 60%;
+}
+
+.menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+.menu li {
+    margin-right: 20px;
+}
+
+.menu li a {
+    color: var(--primary-text-color);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.signs {
+    display: flex;
+    align-items: center;
+    /* justify-content: space-evenly; */
+    justify-content: flex-end;
+    width: 20%;
+
+    /* border: 1px solid red; */
+}
+
+.signs button {
+    border: none;
+    background-color: transparent;
+    padding: 0.5rem 1rem;
+    font-size: 18px;
+    border-radius: 5px;
+    border: 1px solid transparent;
+}
+
+.signs button:last-child {
+    background-color: var(--primary-bg-color);
+}
+
+.signs button:last-child:hover {
+    background-color: var(--tertiary-text-color);
+    transition: ease-in-out 0.5s;
+}
+
+
 .main {
     display: flex;
-    padding: 100px 0px;
-    width: 90%;
+    justify-content: space-between;
+    height: 80vh;
+    padding: 0%;
+    width: 80%;
+    box-shadow: gray 4px 4px 10px;
+    border-radius: 10px;
+    /* background-color: red; */
+}
+
+.back {
+    width: 50%;
+    gap: 0px;
+    border-radius: 0px 10px 10px 0px;
+    border: 0px 1px 0px 0px;
+    margin-bottom: 0%;
+    padding-left: 0%;
+    padding-bottom: 10%;
+    background-color: var(--primary-bg-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+form {
+    padding-top: 10%;
+    width: 80%;
     margin-left: auto;
     margin-right: auto;
+    height: 60vh;
 }
-img {
-    border: 0cm #212121;
-    width: 70%;
+
+h1 {
+    margin-top: 0%;
+    color: var(--primary-text-color);
+    margin-bottom: -10px;
 }
-form {
-    background-color: white;
-    padding-top: 183px;
-    padding-bottom: 165px;
-    border-radius: 20px;
-    width: 30%;
-    padding: 50px;
+
+h2 {
+    font-weight: normal;
+    margin: 1.5rem 0rem 2.5rem;
+    color: var(--primary-text-color);
+    font-size: 1.4rem;
+    font-weight: 500;
 }
-p {
-    font-size: 20px;
-}
+
 input {
     margin-top: 10px;
     margin-bottom: 15px;
     width: 95%;
+    background: transparent;
     border-radius: 10px;
-    border: 1px solid black;
+    border: 1px solid rgba(255, 255, 255, 0.445);
     height: 50px;
     padding-left: 20px;
-    color: black;
+    color: var(--primary-text-color);
+    outline: none;
+    font-size: 1.1rem;
 }
-/**.role {
+
+label {
+    color: var(--primary-text-color);
+    font-weight: 500;
+    display: block;
+}
+
+input[type="radio"] {
+    margin-top: unset;
+    margin-bottom: unset;
+    width: 20px;
+    margin-right: 1rem;
+}
+
+.role {
     display: flex;
-    justify-content: space-between;
+    /* align-items: center; */
+    justify-content: space-around;
+    width: 95%;
+    margin-bottom: 1.2rem;
 }
-/**.rolech {
-    width: 5%;
+
+.role label {
+    display: flex;
+    align-items: center;
 }
-.roles {
-    margin-top: 7%;
-    margin-left: -20%;
-    color: black;
-}**/
-#student, #teacher, #admin {
-    width: 33%;
-    height: 10%;
-    margin-right: -13%;
+
+.doubleinput {
+    display: flex;
+    width: 97.5%;
+    margin-bottom: 1.3rem;
 }
-#org {
-    display: none;
+
+.doubleinput div {
+    width: 50%;
 }
-button {
-    width: 100%;
+
+#email-input {
+    margin-bottom: 1.5rem;
+}
+
+#password-input {
+    margin-bottom: 0.5rem;
+}
+
+input::placeholder {
+    color: var(--primary-text-color);
+}
+
+#signup-btn {
+    width: 95%;
     height: 50px;
     text-align: center;
-    background-color: blue;
-    color: whitesmoke;
-    border: rgb(3, 75, 77);
+    background-color: var(--seconary-bg-color);
+    color: var(--primary-text-color);
     border-radius: 10px;
     font-size: 20px;
     margin-top: 30px;
     margin-bottom: 30px;
+    border: 1px solid var(--primary-bg-color);
+    font-weight: 500;
 }
-button:hover {
-    background-color: rgb(150, 127, 255);
+
+#signup-btn:hover {
+    background-color: transparent;
+    border: 1px solid var(--secondary-text-color);
+    transition: ease-in-out 0.5s;
 }
-#sign-in {
+
+#org {
+    display: none;
+}
+
+p {
     font-size: 22px;
     text-align: center;
-    color: black;
+    color: white;
     margin-top: 2%;
     margin-bottom: 15%;
 }
+
 a {
-    color: blue;
+    color: var(--primary-text-color);
 }
-a:hover {
-    color: rgb(177, 14, 49);
+
+div>a:hover,
+p>a:hover {
+    text-decoration: underline;
+    transition: ease-in-out 0.5s;
 }
-span {
-    display: flex;
-    color: rgb(142, 142, 155);
-    margin-top: 5px;
+
+.account-link a {
+    color: var(--tertiary-text-color);
 }
-hr {
-    width: 215px;
-    height: 1px;
-    background-color: rgb(196, 181, 181);
-    border-color: rgb(196, 181, 181);
-}
-#or {
-    margin-top: 40px;
-    margin-bottom: 40px;
-    font-size: 25px;
-}
-section {
-    clear: both;
-    display: flex;
-    justify-content: space-between;
-    margin-top: 10px;
-}
-.continue {
-    background-color: white;
-    border: 1px solid black;
-    color: black;
+
+.error {
+    color: crimson;
+    margin-bottom: 10px;
+    display: none;
     font-size: 18px;
-    margin-right: 5px;
-    height: 100%;
-    padding: 3%;
 }
-.continue img {
-    margin-left: -12px;
-    width: 25px;
-    height: 25px;
-    vertical-align: middle;
+
+.showerror {
+    display: block;
 }
+
+.Welcome {
+    /** float: right;**/
+    width: 50%;
+    display: flex;
+    justify-content: center;
+}
+
+.welc {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.welc #backdrop {
+    margin-top: 100px;
+    width: 90%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.welc #backdrop img {
+    width: 100%;
+}
+
+.welc h3 {
+    font-size: 50px;
+    color: var(--primary-bg-color);
+    margin: 1rem 0;
+    text-align: center;
+}
+
+.welc p {
+    color: var(--tertiary-text-color);
+    font-family: var(--secondary-font);
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 2rem;
+    letter-spacing: 0.1rem;
+    text-align: center;
+    height: 90px;
+    margin-bottom: 25%;
+}
+
 @media only screen and (max-width: 768px) {
+    body {
+        height: unset;
+    }
+
     .main {
-        display: block;
+        flex-direction: column;
+        padding-right: 0%;
+        margin: 0%;
+        width: 100%;
     }
-    img {
-        width: 90%;
+
+    .back {
+        width: 100%;
+        height: 60vh;
+        margin: 0%;
+        padding: 0%;
+        padding-bottom: 20%;
+        border-radius: unset;
+
     }
-    form {
-        width: 70%;
+
+    .back form {
+        width: 95%;
+        padding-left: 5%;
+        padding-top: 25%;
     }
-    p {
-        width: 80%;
-    }
-    form input {
-        width: 90%;
-    }
+
+    form input,
     button {
+        width: 95%;
+    }
+
+    .Welcome {
+        display: none;
+    }
+
+    .welc {
+        width: 90%;
+    }
+
+    .welc #backdrop {
         width: 100%;
     }
-    span, section {
-        width: 100%;
-        height: fit-content;
+
+    .welc h3 {
+        width: 50%;
     }
-    #student, #teacher, #admin {
+
+    .welc p {
+        width: 50%;
+        text-wrap: left;
+        padding-bottom: 25%;
+    }
+
+    #forgot {
+        margin-left: 15%;
+    }
+
+    span,
+    section {
+        width: 95%;
+    }
+
+    .rolecheck {
         width: 10%;
         margin-right: 0%;
     }

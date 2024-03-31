@@ -1,115 +1,80 @@
-const makeRequest = async (url, method, body = null, headers = {}) => {
-    try {
-        const options = {
-            method: method.toUpperCase(),
-            headers: {
-                'Content-Type': 'application/json',
-                ...headers
-            }
-        };
-  
-        if (body) {
-            options.body = JSON.stringify(body);
-        }
-  
-        const response = await fetch(url, options);
-  
-        if (!response.ok) {
-            throw new Error('Request failed.');
-        }
-  
-        return await response.json();
-    } catch (error) {
-        throw new Error(`An error occurred: ${error.message}`);
-    }
-  };
-
-// Function to handle sign-up form submission
-const handleSignup = async () => {
-    // Get form input values
-    const firstName = document.getElementById('firstName').value;
-    const lastName = document.getElementById('lastName').value;
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
-    const confirmPassword = document.getElementById('confirmPassword').value;
-    const roleRadios = document.getElementsByName('role'); // Get all role radio buttons
+document.addEventListener('DOMContentLoaded', function () {
     let role;
-    let organizationName; // Declare organizationName variable
+    let organizationName;
 
-    // Loop through radio buttons to find the selected role
-    for (const radio of roleRadios) {
-        if (radio.checked) {
-            role = radio.value;
-            // If admin role is selected, check if organization name is provided
+    // Setup event listener for radio buttons
+    const radioButtons = document.querySelectorAll('input[type="radio"]');
+    radioButtons.forEach(function (radio) {
+        radio.addEventListener('click', function () {
+            role = this.value;
             if (role === 'admin') {
-                organizationName = document.getElementById('organizationName').value; // Get organization name value
+                document.getElementById('org').style.display = 'block';
+                organizationName = document.getElementById('organizationName').value;
+            } else {
+                document.getElementById('org').style.display = 'none';
+            }
+        });
+    });
+
+    // Setup event listener for form submission
+    document.querySelector('form').addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        const fname = document.getElementById('fname').value;
+        const lname = document.getElementById('lname').value;
+        const email = document.querySelector('input[type="email"]').value;
+        const password = document.querySelectorAll('input[type="password"]')[0].value;
+        const confirmPassword = document.querySelectorAll('input[type="password"]')[1].value;
+
+        if (password !== confirmPassword) {
+            showError("Passwords do not match.");
+        } else {
+            if (role === 'admin') {
+                organizationName = document.getElementById('organizationName').value;
                 if (!organizationName) {
-                    alert('Organization Name is required for Admin role.');
+                    showError("Organization Name is required for Admin role.");
                     return;
                 }
             }
-            break;
+
+            const data = {
+                firstName: fname,
+                lastName: lname,
+                email: email,
+                password: password,
+                role: role,
+            };
+
+            if (role === 'admin') {
+                data.organizationName = organizationName;
+            }
+
+            fetch('http://localhost:3000/api/auth/signup', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            }).then(response => {
+                return Promise.all([response.json(), Promise.resolve(response.status)]);
+            }).then(([data, statusCode]) => {
+                console.log(data, statusCode); // Output the data object
+                if (statusCode !== 201) {
+                    showError(data.message);
+                } else {
+                    window.location.href = 'login.html';
+                }
+            })
+
         }
+    });
+
+    function showError(message) {
+        const errorElement = document.querySelector('.error');
+        errorElement.textContent = message;
+        errorElement.classList.add('showerror');
+        setTimeout(() => {
+            errorElement.classList.remove('showerror');
+        }, 3000);
     }
-
-    // Validate form input (client-side validation)
-    if (!firstName || !lastName || !email || !password || !confirmPassword || !role) { // Fixed validation check
-        alert('All fields are required.');
-        return;
-    }
-
-    if (password !== confirmPassword) {
-        alert('Passwords do not match.');
-        return;
-    }
-
-    // Create user object
-    let user = {
-        firstName,
-        lastName,
-        email,
-        password,
-        role // Include selected role in user object
-    };
-
-    // If admin role is selected, add organization name to user object
-    if (role === 'admin') {
-        user.organizationName = organizationName;
-    }
-
-    try {
-        // Make POST request using the makeRequest function
-        const response = await makeRequest('http://localhost:3000/api/auth/signup', 'POST', user);
-
-        if (response.ok) {
-            // Registration successful
-            alert('User registered successfully.');
-            window.location.href = '/frontend/login.html'; // Redirect to login page
-        } else {
-            // Registration failed
-            const errorMessage = await response.json();
-            alert(errorMessage.message);
-        }
-    } catch (error) {
-        alert('An error occurred. Please try again later.');
-    }
-};
-
-// Function to toggle visibility of organization name field based on selected role
-const toggleOrganizationNameField = () => {
-    const adminRadio = document.getElementById('admin');
-    const organizationNameField = document.getElementById('org');
-
-    if (adminRadio.checked) {
-        organizationNameField.style.display = 'block';
-        organizationNameField.attributes('required') = 'true';
-    } else {
-        organizationNameField.style.display = 'none';
-        organizationNameField.attributes('required') = 'false';
-    }
-
-};
-
-// Event listeners for sign-up form submission and role radio button changes
-document.getElementById('signup-btn').addEventListener('click', handleSignup);
-document.getElementsByName('role').forEach(radio => radio.addEventListener('change', toggleOrganizationNameField));
+});
