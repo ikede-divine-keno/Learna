@@ -23,7 +23,7 @@
   </nav>
 
   <section class="home" id="teachers">
-    <div class="text-head">Teacher #ID</div>
+    <div class="text-head">Student #ID</div>
 
     <!-- Profile details -->
     <div class="form-box">
@@ -57,37 +57,16 @@
     <div class="mt-5">
       <ul class="nav nav-pills mb-2">
         <li class="nav-item">
-          <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#assignedCourses" type="button"
-            role="tab">Course
-            Assigned</button>
+          <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#enrolledCourses" type="button"
+            role="tab">Enrolled Courses</button>
         </li>
         <li class="nav-item">
-          <button class="nav-link" data-bs-toggle="tab" data-bs-target="#assignCourses" type="button" role="tab">Assign
-            Course</button>
+          <button class="nav-link" data-bs-toggle="tab" data-bs-target="#studentGrades" type="button" role="tab">Grades</button>
         </li>
       </ul>
 
       <div class="tab-content bg-light p-3 rounded" id="myTabContent">
-        <div class="tab-pane fade show active" id="assignedCourses" role="tabpanel">
-          <div>
-            <h6 class="fw-bold">Course Title</h6>
-            <p>Backend Development</p>
-          </div>
-          <div>
-            <h6 class="fw-bold">Created</h6>
-            <p>12th May, 2024</p>
-          </div>
-          <div>
-            <h6 class="fw-bold">Enrolled</h6>
-            <p>234</p>
-          </div>
-
-          <a href="#" class="btn btn-danger">
-            <i class='bx bx-trash'></i>
-            Unassign
-          </a>
-        </div>
-        <div class="tab-pane fade" id="assignCourses" role="tabpanel">
+        <div class="tab-pane fade show active" id="enrolledCourses" role="tabpanel">
           <table class="example table table-striped" style="width:100%">
             <thead>
               <tr>
@@ -108,9 +87,9 @@
                       <i class='bx bx-detail'></i>
                       View
                     </a>
-                    <a href="#" class="btn btn-sm btn-primary">
-                      <i class='bx bx-check-square'></i>
-                      Assign
+                    <a href="#" class="btn btn-sm btn-danger">
+                      <i class='bx bx-trash'></i>
+                      Remove
                     </a>
                   </div>
                 </td>
@@ -122,6 +101,34 @@
                 <th>Created</th>
                 <th>Enrolled</th>
                 <th>Actions</th>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+        <div class="tab-pane fade" id="studentGrades" role="tabpanel">
+          <table class="table table-striped example" style="width:100%">
+            <thead>
+              <tr>
+                <th>Course name</th>
+                <th>Assignment name</th>
+                <th>Data submitted</th>
+                <th>Grade</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><a href="#">Backend Development</a></td>
+                <td><a href="#">Build an API</a></td>
+                <td>12th May, 2024</td>
+                <td>45%</td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <th>Course name</th>
+                <th>Assignment name</th>
+                <th>Data submitted</th>
+                <th>Grade</th>
               </tr>
             </tfoot>
           </table>

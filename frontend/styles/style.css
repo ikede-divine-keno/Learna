@@ -12,10 +12,15 @@
   /* ===== Colors ===== */
   --body-color: #E4E9F7;
   --sidebar-color: #FFF;
-  --primary-color: #695CFE;
-  --primary-color-light: #F6F5FF;
+  --light: #FFF;
+  --primary-color: #242d7b;
+  --primary-color-light: #eeeffb;
   --toggle-color: #DDD;
   --text-color: #707070;
+  --bs-tertiary-bg: #ed847e;
+  
+  /* Bootstrap color map */
+  
   /* ====== Transition ====== */
   --tran-03: all 0.2s ease;
   --tran-03: all 0.3s ease;
@@ -27,6 +32,7 @@ body {
   min-height: 100vh;
   background-color: var(--body-color);
   transition: var(--tran-05);
+  color: var(--text-color);
 }
 
 ::selection {
@@ -37,10 +43,29 @@ body {
 body.dark {
   --body-color: #18191a;
   --sidebar-color: #242526;
+  --light: #535353;
   --primary-color: #3a3b3c;
   --primary-color-light: #3a3b3c;
   --toggle-color: #fff;
   --text-color: #ccc;
+  --bs-tertiary-bg: #343a40;
+  --bs-body-color: var(--text-color);
+  --bs-body-bg: var(--body-color);
+}
+
+.bg-light {
+  background-color: var(--sidebar-color) !important;
+}
+.btn-primary {
+  background-color: var(--primary-color) !important;
+  border-color: var(--primary-color) !important;
+}
+.table>:not(caption)>*>* {
+  color: var(--text-color) !important;
+}
+.form-control,.form-select {
+  background-color: var(--sidebar-color) !important;
+  color: var(--text-color) !important;
 }
 
 /* ===== Sidebar ===== */
@@ -338,12 +363,17 @@ body.dark .home div.text-head {
 }
 
 /* Institution page */
-#institution .form-box {
+.form-box {
   max-width: 500px;
-  background-color: white;
+  background-color: var(--sidebar-color);
   border-radius: 1rem;
   padding: 1.5rem;
 }
-#institution .form-box .profile-image .image {
+.form-box .profile-image .image {
   width: 300px;
+}
+
+.coming-soon-icon i {
+  font-size: 5rem;
+  color: var(--primary-color);
 }
