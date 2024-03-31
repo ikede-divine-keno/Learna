@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teachers - Learna</title>
+</head>
+
+<body style="display: none;">
+  <nav class="sidebar">
+  </nav>
+
+  <section class="home" id="teachers">
+    <div class="text-head">Create Course</div>
+
+    <!-- Profile details -->
+    <div class="form-box">
+      <form id="create-teacher-form" class="needs-validation" novalidate>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Name</label>
+          <input type="text" class="form-control" id="exampleInputEmail1" required>
+          <div class="valid-feedback">
+            Looks good!
+          </div>
+          <div class="invalid-feedback">
+            Please enter a name
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="firstName" class="form-label">Content</label>
+          <textarea name="" id="" cols="30" rows="10" class="form-control" required></textarea>
+          <div class="valid-feedback">
+            Looks good!
+          </div>
+          <div class="invalid-feedback">
+            Please course content.
+          </div>
+        </div>
+
+        <div class="mt-5">
+          <button type="submit" class="btn btn-primary">Create</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <script src="/frontend/scripts/main.js"></script>
+</body>
+
+</html>

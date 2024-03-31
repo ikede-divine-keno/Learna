@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teachers - Learna</title>
+</head>
+
+<body style="display: none;">
+  <nav class="sidebar">
+  </nav>
+
+  <section class="home" id="teachers">
+    <div class="text-head">Manage Teachers</div>
+
+    <div class="d-flex gap-3 justify-content-end mb-3">
+      <a href="/frontend/admin/teachers/create.html" class="btn btn-success">
+        <i class='bx bx-plus'></i>
+        Create Teacher
+      </a>
+    </div>
+    <div class="bg-light p-3 rounded">
+      <table class="example table table-striped" style="width:100%">
+        <thead>
+          <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><a href="#">Tiger</a></td>
+            <td>Nixon</td>
+            <td>test@gmail.com</td>
+            <td>
+              <div class="d-flex gap-2">
+                <a href="/frontend/admin/teachers/detail.html" class="btn btn-sm btn-primary">
+                  <i class='bx bx-detail'></i>
+                  View
+                </a>
+                <a href="#" class="btn btn-sm btn-danger">
+                  <i class='bx bx-trash'></i>
+                  Delete
+                </a>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Actions</th>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+
+  </section>
+
+  <script src="../scripts/main.js"></script>
+</body>
+
+</html>
