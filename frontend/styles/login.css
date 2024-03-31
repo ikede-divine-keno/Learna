@@ -160,11 +160,6 @@ label {
     font-weight: 500;
     display: block;
 }
-.rolecheck {
-    width: 33%;
-    height: 10%;
-    margin-right: -13%;
-}
 input {
     margin-top: 10px;
     margin-bottom: 15px;
