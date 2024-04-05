@@ -1,3 +1,5 @@
+const BASE_PATH = '/frontend';
+
 // Reusable function to make HTTP requests
 const makeRequest = async (url, method, body = null, headers = {}) => {
     try {
@@ -50,7 +52,15 @@ const handleSignIn = async () => {
         }
 
         localStorage.setItem('token', data.accessToken); // Save token to local storage
-        window.location.href = '/frontend/dashboard.html'; // Redirect to dashboard page
+        localStorage.setItem('user', data.user);
+
+        const dashboards = {
+          "admins": "admin/dashboard.html",
+          "users": "user/dashboard.html",
+          "teachers": "teacher/dashboard.html",
+        }
+        window.location.href = `${BASE_PATH}/${dashboards[data.user.role]}`;
+
     } catch (error) {
         alert("Invalid login details");
     }

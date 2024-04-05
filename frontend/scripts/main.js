@@ -94,7 +94,7 @@ function init() {
 
     <div class="bottom-content">
       <li class="">
-        <a href="#">
+        <a href="#" id="logout" onclick="logout()">
           <i class='bx bx-log-out icon'></i>
           <span class="text nav-text">Logout</span>
         </a>
@@ -333,6 +333,21 @@ function init() {
 
   // DataTable
   new DataTable(".example");
+
+  // Initialize page data
+  const pageDataRenderer = new PageDataRenderer();
+
+  // Map page render functions to paths
+  const pageRenderFunctions = {
+    "/admin/dashboard.html": pageDataRenderer.renderDashboard,
+  };
+  const currentPath = window.location.pathname;
+  for (const [path, renderFunction] of Object.entries(pageRenderFunctions)) {
+    if (currentPath.includes(path)) {
+      renderFunction.call(pageDataRenderer);
+      break;
+    }
+  }
 }
 
 /**
@@ -383,3 +398,104 @@ recursiveLoadStylesheets(
   ],
   0
 );
+
+
+function isAuthenticated() {
+  return !!localStorage.getItem("token");
+}
+
+function logout() {
+  localStorage.removeItem("token");
+  localStorage.removeItem("user");
+  window.location.href = `${BASE_PATH}/login.html`;
+}
+
+class API {
+  constructor() {
+    this.BASE_URL = "http://localhost:3000/api";
+  }
+
+  async makeRequest(url, method, data=null) {
+    const token = localStorage.getItem("token");
+    const headers = {};
+    if (token) {
+      headers["Authorization"] = `Bearer ${token}`;
+    }
+
+    const response = await fetch(`${this.BASE_URL}${url}`, {
+      method,
+      headers: {
+        "Content-Type": "application/json",
+        ...headers,
+      },
+      body: data ? JSON.stringify(data) : undefined,
+    });
+
+    // If response is token expired, redirect to login page
+    if (response.status === 403) {
+      logout();
+    }
+
+    return response.json();
+  }
+
+  async getUser() {
+    return this.makeRequest("/user", "GET");
+  }
+
+  async getStats() {
+    return this.makeRequest("/stats", "GET");
+  }
+}
+
+
+class PageDataRenderer {
+  constructor() {
+    this.api = new API();
+  }
+
+  #loadDataPoint(uid, value) {
+    const el = document.getElementById(`data-${uid}`);
+    if (el) {
+      el.innerText = value;
+    }
+  }
+
+  showLoader() {
+    document.getElementById("loader").classList.add("active");
+  }
+
+  hideLoader() {
+    document.getElementById("loader").classList.remove("active");
+  }
+
+  #render(promises) {
+    this.showLoader();
+    Promise.all(promises).then(() => {
+      this.hideLoader();
+    });
+  }
+
+  renderDashboard() {
+    const promises = [
+      this.api.getUser().then((data) => {
+        this.#loadDataPoint("firstName", data.user.firstName);
+        this.#loadDataPoint("lastName", data.user.lastName);
+      }),
+      this.api.getStats().then((data) => {
+        this.#loadDataPoint("totalStudents", data.student);
+        this.#loadDataPoint("totalTeachers", data.teacher);
+      }),
+    ]
+    this.#render(promises);
+  }
+}
+
+
+function createDelay(time) {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve();
+    }, time);
+  });
+}
