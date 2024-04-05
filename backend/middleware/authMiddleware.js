@@ -41,6 +41,10 @@ const authenticateToken = (req, res, next) => {
   });
 };
 
+// const authorizeUser = (req, res, next) => {
+
+// }
+
 // Exporting the authenticateToken middleware for use in other modules
 module.exports = {
   authenticateToken

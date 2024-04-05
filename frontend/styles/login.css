@@ -1,26 +1,134 @@
-body {
-    margin: 0%;
-    padding: 0%;
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap");
+:root {
+    --primary-bg-color: #242d7b; /* Primary background color variable */
+    --seconary-bg-color: rgba(0, 0, 0, 0.767); /* Secondary background color variable */
+    --primary-text-color: #e6e6e6;   /* Text color variable */
+    --secondary-text-color: rgba(0, 0, 0, 0.767); /* Text color variable */
+    --tertiary-text-color:  #ed847e; /*#858585; Text color variable */
+    --primary-font: 'Rubik'; /* Text font variable */
+    --secondary-font: 'Poppins';
+  }
+* {
+	font-family: var(--primary-font);
+	box-sizing: border-box;
+	text-decoration: none;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
 }
+
+#container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* background-color: blue; */
+    height: 90vh;
+}
+
+.navbar {
+    background-color: var(--seconary-bg-color);
+    color: var(--primary-text-color);
+    font-size: 18px;
+    padding: 10px 0;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 80%;
+    margin: 0 auto;
+    padding: 1.2rem 20px;
+}
+
+.logo a, .signs a {
+    color: var(--primary-text-color);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.logo a {
+    font-size: 24px;
+}
+.logo a:hover {
+    text-decoration: none;
+}
+
+.menu {
+    width: 60%;
+}
+
+.menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+.menu li {
+    margin-right: 20px;
+}
+
+.menu li a {
+    color: var(--primary-text-color);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.signs {
+    display: flex;
+    align-items: center;
+    /* justify-content: space-evenly; */
+    justify-content: flex-end;
+    width: 20%;
+
+    /* border: 1px solid red; */
+}
+
+.signs button {
+    border: none;
+    background-color: transparent;
+    padding: 0.5rem 1rem;
+    font-size: 18px;
+    border-radius: 5px;
+    border: 1px solid transparent;
+}
+
+.signs button:last-child {
+    background-color: var(--primary-bg-color);
+}
+
+.signs button:last-child:hover {
+    background-color: var(--tertiary-text-color);
+    transition: ease-in-out 0.5s;
+}
+
+
 .main {
     display: flex;
     justify-content: space-between;
+    height: 80%;
     padding: 0%;
+    width: 80%;
+    box-shadow: gray 4px 4px 10px;
+    border-radius: 10px;
+    /* background-color: red; */
 }
 .back {
-    background-color: #211D1D;
     /**min-width: 643px;**/
     /**max-width: 800px;**/
     width: 50%;
-    max-height: 1024px;
     gap: 0px;
-    border-radius: 0px 20px 20px 0px;
+    border-radius: 10px 0px 0px 10px;
     border: 0px 1px 0px 0px;
     margin-bottom: 0%;
     padding-left: 0%;
     padding-bottom: 10%;
-    /**float: left;**/
-    
+    background-color: var(--primary-bg-color);
+    /* background: linear-gradient(to bottom, var(--primary-bg-color) 45%, white 100%); */
 }
 form {
     padding-top: 183px;
@@ -31,21 +139,26 @@ form {
 }
 h1 {
     margin-top: 0%;
-    color: white;
+    color: var(--primary-text-color);
     margin-bottom: -10px;
 }
 h2 {
-    color: white;
-    margin-bottom: 50px;
     font-weight: normal;
+    margin: 1.5rem 0rem 2.5rem;
+    color: var(--primary-text-color);
+    font-size: 1.4rem;
+    font-weight: 500;
+}
+#email-input{
+    margin-bottom: 1.5rem;
+}
+#password-input{
+    margin-bottom: 0.5rem;
 }
 label {
-    color: white;
-}
-.rolecheck {
-    width: 33%;
-    height: 10%;
-    margin-right: -13%;
+    color: var(--primary-text-color);
+    font-weight: 500;
+    display: block;
 }
 input {
     margin-top: 10px;
@@ -53,48 +166,57 @@ input {
     width: 95%;
     background: transparent;
     border-radius: 10px;
-    border: 1px solid white;
+    border: 1px solid rgba(255, 255, 255, 0.445);
     height: 50px;
     padding-left: 20px;
-    color: white;
+    color: var(--primary-text-color);
+    outline: none;
+    font-size: 1.1rem;
+}
+.remember-forget{
+    display: flex;
+    justify-content: space-between;
+    width: 95%;
+}
+.remember-forget div:first-child {
+    display: flex;
+    width: 30%;
+}
+.remember-forget div input {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    width: 10%;
+    margin-right: 10px;
+    background: transparent;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.445);
+    padding-left: 20px;
+    height: inherit;
+    color: var(--primary-text-color);
+    outline: none;
+    font-size: 1.1rem;
+
 }
 input::placeholder {
-    color: white;
+    color: var(--primary-text-color);
 }
-span {
-    display: flex;
-    color: rgb(142, 142, 155);
-    margin-top: 5px;
-}
-hr {
-    width: 45%;
-    height: 1px;
-    background-color: rgb(196, 181, 181);
-    border-color: rgb(196, 181, 181);
-}
-#check {
-    width: 15px;
-    height: 15px;
-    margin-top: -1px;
-    background-color: #211D1D;
-}
-#forgot {
-    margin-left: 60%;
-}
-button {
-    width: 100%;
+
+#signin-btn {
+    width: 95%;
     height: 50px;
     text-align: center;
-    background-color: blue;
+    background-color: var(--seconary-bg-color);
     color: whitesmoke;
-    border: rgb(3, 75, 77);
     border-radius: 10px;
     font-size: 20px;
     margin-top: 30px;
     margin-bottom: 30px;
+    border: none;
+    font-weight: 500;
 }
-button:hover {
-    background-color: rgb(150, 127, 255);
+#signin-btn:hover {
+    background-color: transparent;
+    border: 1px solid var(--primary-text-color);
 }
 p {
     font-size: 22px;
@@ -104,98 +226,90 @@ p {
     margin-bottom: 15%;
 }
 a {
-    color: blue;
+    color: var(--primary-text-color);
 }
-a:hover {
-    color: aquamarine;
+div > a:hover, p > a:hover {
+    text-decoration: underline;
 }
-#or {
-    margin-top: 40px;
-    margin-bottom: 40px;
-    font-size: 25px;
+
+.register-link a {
+    color: var(--tertiary-text-color);
 }
-section {
-    clear: both;
-    display: flex;
-    justify-content: space-between;
-    margin-top: 10px;
-}
-.continue {
-    background-color: white;
-    color: black;
+
+.error {
+    color: crimson;
+    margin-bottom: 10px;
+    display: none;
     font-size: 18px;
-    margin-right: 5px;
-}
-.continue img {
-    margin-left: -12px;
-    height: 25px;
-    vertical-align: middle;
-}
+  }
+
 .Welcome {
    /** float: right;**/
     width: 50%;
-    max-height: 1024px;
+    display: flex;
+    justify-content: center;
 }
 .welc {
-    width: 700px;
+    width: 80%;
     margin-left: auto;
     margin-right: auto;
 }
 .welc #backdrop {
     margin-top: 100px;
-    width: 692px;
-    height: 515.69px;
-    /**margin-left: auto;
-    margin-right: auto;**/
+    width: 100%;
+    height: auto;
+    /* border: 0.5px solid var(--tertiary-text-color); */
+    border-radius: 10px;
+}
+.welc #backdrop img {
+    width: 100%;
 }
 .welc h3 {
     font-size: 50px;
-    color: blue;
-    margin-bottom: 0%;
-    padding-left: 100px;
-    /**margin-left: auto;
-    margin-right: auto;**/
+    color: var(--primary-bg-color);
+    margin: 1rem 0;
+    text-align: center;
 }
 .welc p{
-    color: #858585;
-    font-family: Poppins;
+    color: var(--tertiary-text-color);
+    font-family: var(--secondary-font);
     font-size: 20px;
     font-weight: 400;
-    line-height: 30px;
-    text-align: left;
-    width: 535px;
+    line-height: 2rem;
+    letter-spacing: 0.1rem;
+    text-align: center;
     height: 90px;
-    padding-left: 100px;
     margin-bottom: 25%;
-    /**margin-left: auto;
-    margin-right: auto;**/
 }
 @media only screen and (max-width: 768px) {
+    body{
+        height: unset;
+    }
     .main {
-        display: block;
+        flex-direction: column;
         padding-right: 0%;
         margin: 0%;
+        width: 100%;
     }
     .back {
         width: 100%;
+        height: 60vh;
         margin: 0%;
         padding: 0%;
         padding-bottom: 20%;
+        border-radius: unset;
+
     }
     .back form {
         width: 95%;
         padding-left: 5%;
         padding-top: 25%;
     }
-    form input {
-        width: 85%;
-    }
-    button {
-        width: 92%;
+    form input, button {
+        width: 95%;
     }
     .Welcome {
-        width: 100%;
-        padding-bottom: 20%;
+        display: none;
     }
     .welc {
         width: 90%;
