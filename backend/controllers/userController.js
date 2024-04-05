@@ -3,6 +3,8 @@ const Admin = require('../models/Admin');
 const Teacher = require('../models/Teacher');
 const Student = require('../models/Student');
 
+const { findUserByEmail } = require('../utils/db_utils');
+
 /**
  * Retrieves user information based on their role and email.
  * @param {Object} req - The request object containing user information (req.user).
@@ -32,12 +34,7 @@ const user = async (req, res) => {
 
   try {
     // Finding the user in the database using the selected userModel
-    const user = await userModel.findOne({ email: email });
-
-    if (!user) {
-      // If user is not found, return a 400 (Bad Request) response
-      return res.status(400).json({ message: 'User not found' });
-    }
+    const user = await findUserByEmail(email, userModel, res);
 
     // Prepare the user object without sensitive information (e.g., password)
     const { password, __v, ...userInfo } = user._doc;
