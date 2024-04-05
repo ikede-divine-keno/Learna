@@ -16,7 +16,11 @@ const { authenticateToken } = require('../middleware/authMiddleware');
  * @module userController
  * @property {Function} user - Controller function for retrieving user information.
  */
-const { user, getTeachers } = require('../controllers/userController');
+
+const { user } = require('../controllers/userController');
+const { getTeachers, addTeachers, getTeacher, deleteTeacher } = require('../controllers/teacherController');
+const { getStudents, addStudents, getStudent, deleteStudent } = require('../controllers/studentController');
+
 
 /**
  * Creates an instance of Express router for defining API routes.
@@ -29,6 +33,18 @@ const router = express.Router();
 // Define a route for handling GET requests at the root path '/'
 router.get('/', authenticateToken, user);
 // router.get('/
+
+// Define a route for handling GET requests at the '/teachers' path
+router.get('/teachers/:id', authenticateToken, getTeacher);
+router.get('/teachers', authenticateToken, getTeachers);
+router.post('/teachers', authenticateToken, addTeachers);
+router.delete('/teachers', authenticateToken, deleteTeacher);
+
+// Define a route for handling GET requests at the '/students' path
+router.get('/students/:id', authenticateToken, getStudent);
+router.get('/students', authenticateToken, getStudents);
+router.post('/students', authenticateToken, addStudents);
+router.delete('/students', authenticateToken, deleteStudent);
 
 /**
  * Exporting the router instance to make it accessible from other modules.

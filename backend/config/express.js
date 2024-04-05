@@ -17,7 +17,7 @@ app.use(cors());
 app.use(bodyParser.json());
 
 // Using bodyParser middleware to parse incoming URL-encoded data
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: false }));
 
 // Exporting the Express application to make it accessible from other modules
 module.exports = app;
