@@ -19,6 +19,7 @@ const { authenticateToken } = require('../middleware/authMiddleware');
 const { user } = require('../controllers/userController');
 const { getTeachers, addTeachers, getTeacher, deleteTeacher } = require('../controllers/teacherController');
 const { getStudents, addStudents, getStudent, deleteStudent } = require('../controllers/studentController');
+const { getCourses, addCourses, getCourse, deleteCourse, addCourseStudent } = require('../controllers/courseController');
 
 /**
  * Creates an instance of Express router for defining API routes.
@@ -42,6 +43,13 @@ router.get('/students/:id', authenticateToken, getStudent);
 router.get('/students', authenticateToken, getStudents);
 router.post('/students', authenticateToken, addStudents);
 router.delete('/students', authenticateToken, deleteStudent);
+
+// Define a route for handling GET requests at the '/courses' path
+router.get('/courses/:id', authenticateToken, getCourse);
+router.get('/courses/:id/students', authenticateToken, addCourseStudent);
+router.get('/courses', authenticateToken, getCourses);
+router.post('/courses', authenticateToken, addCourses);
+router.delete('/courses', authenticateToken, deleteCourse);
 
 /**
  * Exporting the router instance to make it accessible from other modules.
