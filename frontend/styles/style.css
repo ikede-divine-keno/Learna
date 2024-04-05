@@ -19,7 +19,10 @@
   --text-color: #707070;
   --bs-tertiary-bg: #ed847e;
   
-  /* Bootstrap color map */
+  --hue: 223;
+	--bg: #010818e8;
+	--fg: hsl(var(--hue),90%,5%);
+	--trans-dur: 0.3s;
   
   /* ====== Transition ====== */
   --tran-03: all 0.2s ease;
@@ -66,6 +69,81 @@ body.dark {
 .form-control,.form-select {
   background-color: var(--sidebar-color) !important;
   color: var(--text-color) !important;
+}
+
+
+/* ==== Loader UI ===== */
+#loader {
+  background-color: var(--bg);
+	color: var(--fg);
+	font: 1em/1.5 sans-serif;
+	height: 100vh;
+  width: 100%;
+	display: grid;
+	place-items: center;
+	transition: background-color var(--trans-dur);
+	padding: 1.5em 0;
+  position: fixed;
+  z-index: 0;
+}
+#loader.active {
+  z-index: 1000;
+}
+#loader .ip {
+	width: 16em;
+	height: 8em;
+}
+#loader .ip__track {
+	stroke: hsl(var(--hue),90%,90%);
+	transition: stroke var(--trans-dur);
+}
+#loader .ip__worm1,
+#loader .ip__worm2 {
+	animation: worm1 2s linear infinite;
+}
+#loader .ip__worm2 {
+	animation-name: worm2;
+}
+
+/* Dark theme */
+@media (prefers-color-scheme: dark) {
+	:root {
+		--bg: #010818ee;
+		--fg: hsl(var(--hue),90%,95%);
+	}
+	.ip__track {
+		stroke: hsl(var(--hue),90%,15%);
+	}
+}
+
+/* Animation */
+@keyframes worm1 {
+	from {
+		stroke-dashoffset: 0;
+	}
+	50% {
+		animation-timing-function: steps(1);
+		stroke-dashoffset: -358;
+	}
+	50.01% {
+		animation-timing-function: linear;
+		stroke-dashoffset: 358;
+	}
+	to {
+		stroke-dashoffset: 0;
+	}
+}
+
+@keyframes worm2 {
+	from {
+		stroke-dashoffset: 358;
+	}
+	50% {
+		stroke-dashoffset: 0;
+	}
+	to {
+		stroke-dashoffset: -358;
+	}
 }
 
 /* ===== Sidebar ===== */
