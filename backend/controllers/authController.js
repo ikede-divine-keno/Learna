@@ -32,11 +32,12 @@ const model = (modelName, firstName, lastName, email, password, organizationName
 const signUp = async (req, res) => {
   // Checking if the user with the provided email already exists
   if (await Admin.findOne({ email: req.body.email }) ||
-    await Teacher.findOne({ email: req.body.email }) ||
-    await Student.findOne({ email: req.body.email })) {
+  await Teacher.findOne({ email: req.body.email }) ||
+  await Student.findOne({ email: req.body.email })) {
     return res.status(400).json({ message: 'User already exists' });
   }
-
+  
+  console.log(req.body)
   try {
     // Hashing the password using bcrypt
     const hashedPassword = await bcrypt.hash(req.body.password, 10);
