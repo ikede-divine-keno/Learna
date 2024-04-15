@@ -9,7 +9,8 @@ const adminSchema = new mongoose.Schema({
   organizationName: { type: String, required: true }, // Organization name of the admin (required)
   password: { type: String, required: true }, // Password of the admin (required)
   teachers: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Teacher' }], // Array of teacher references
-  students: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Student' }] // Array of student references
+  students: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Student' }], // Array of student 
+  courses: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Course' }] // Array of course references
 });
 
 // Exporting the Admin model using the adminSchema
